@@ -1,0 +1,48 @@
+{"basics": {
+    "name": "Elin Park",
+    "email": "elinpark@utexas.edu",
+    "phone": "571-585-0212",
+    "summary": "Freshman CS student at the University of Texas at Austin",
+    "location": {
+        "address": "2624 Whitis Ave",
+        "postalCode": "75034",
+        "city": "Austin",
+        "countryCode": "+1",
+        "region": "Texas"
+    },
+    "work": [
+        {
+            "name":"Institute of Systems Biology", 
+            "position": "Intern", 
+            "url": "https://isbscience.org/", 
+            "startDate": "2020-08-21", 
+            "endDate": "2021-05-10", 
+            "summary": "Learned about computational biology under the mentorship of a computational biology."
+        },
+        {
+            "name": "TPEO",
+            "position": "Engineering Fellow",
+            "url": "https://txproduct.org",
+            "startDate": "2021-05-05",
+            "endDate": "Present",
+            "summary": "Learn full-stack devleopment and utilize those skills to work on local Austin projects."
+        }
+    ],
+    "education": [
+        {"institution": "University of Texas at Austin", 
+            "url": "www.utexas.edu", 
+            "area": "Computer Science", 
+            "studyType": "Bachelor's of Science", 
+            "startDate": "2021", 
+            "endDate": "2025"}
+        ],
+    "interests": [
+        {
+            "name": "AI"
+        },
+        {
+            "name": "Human-computer interaction"
+        }
+    ]
+}
+}
