@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Resume Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+</head>
+
+<img src='https://txproduct.org/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5a732978-8c50-452a-a4f3-f13d50837e7d%2FIMG_9510_copy.jpg?table=block&id=ed2f9fdf-6153-4d6b-8230-7b8281407f34&spaceId=4769b8a8-46bf-45ac-af94-3115ef6c16f7&width=2000&userId=&cache=v2'
+    style="width:200px;height:400px;"/>
+    <h1 id="name"></h1>
+    <h3>Introduction</h2>
+    <p1 id="intro"></p1>
+    <h3>Education</h2>
+    <ul id="education"></ul>
+    <h3>Experience</h2>
+    <ul id="expList"></ul>
+    <h3>Interests</h2>
+    <ul id="interestsList"></ul>
+    <h3>Contact Information</h2>
+    <a href id="email"></a>
+    <p id="phone"></p>
+    <h3>Address</h2>
+    <p id="address"></p>
+
+<body>
+  <script>
+    // add the resume object here
+    var obj = {
+      "basics": {
+    "name": "Elin Park",
+    "email": "elinpark@utexas.edu",
+    "phone": "571-585-0212",
+    "summary": "Freshman CS student at the University of Texas at Austin",
+    "location": {
+        "address": "2624 Whitis Ave",
+        "postalCode": "75034",
+        "city": "Austin",
+        "countryCode": "+1",
+        "region": "Texas"
+    },
+    "work": [
+        {
+            "name":"Institute of Systems Biology", 
+            "position": "Intern", 
+            "url": "https://isbscience.org/", 
+            "startDate": "2020-08-21", 
+            "endDate": "2021-05-10", 
+            "summary": "Learned about computational biology under the mentorship of a computational biology."
+        },
+        {
+            "name": "TPEO",
+            "position": "Engineering Fellow",
+            "url": "https://txproduct.org",
+            "startDate": "2021-05-05",
+            "endDate": "Present",
+            "summary": "Learn full-stack devleopment and utilize those skills to work on local Austin projects."
+        }
+    ],
+    "education": [
+        {"institution": "University of Texas at Austin", 
+            "url": "www.utexas.edu", 
+            "area": "Computer Science", 
+            "studyType": "Bachelor's of Science", 
+            "startDate": "2021", 
+            "endDate": "2025"}
+        ],
+    "interests": [
+        {
+            "name": "AI"
+        },
+        {
+            "name": "Human-computer interaction"
+        }
+    ]
+}
+}
+
+parsed_obj = JSON.parse(JSON.stringify(obj));
+
+// Displays the name
+name = document.getElementById("name");
+name.innerHTML = parsed_obj.basics.name;
+
+// Displays the Introduction
+document.getElementById("intro").innerHTML = parsed_obj.basics.summary;
+
+// Displays the Education
+      education = document.getElementById("education");
+
+      for (const x of parsed_obj.education) {
+
+        // UT Link
+        institution = document.createElement("li");
+        link = document.createElement("a");
+        link.setAttribute("href", x.url);
+        link.innerHTML = x.institution;
+        institution.appendChild(link);
+        education.appendChild(institution);
+
+        // Creates new sublist
+        list_for_institution = document.createElement("ul");
+        institution.appendChild(list_for_institution);
+
+        // Area
+        area = document.createElement("li");
+        area.innerHTML = x.studyType + " in " + x.area;
+        list_for_institution.appendChild(area);
+
+        // Date
+        date = document.createElement("li");
+        date.innerHTML = x.startDate + " to " + x.endDate;
+        list_for_institution.appendChild(date);
+      }
+
+      // Generates and displays the HTML for the My Experience section by looping through the work array
+      list = document.getElementById("list");
+
+      for (const x of parsed_obj.work) {
+
+        // The Link
+        job_bullet = document.createElement("li");
+        link = document.createElement("a");
+        link.setAttribute("href", x.url);
+        link.innerHTML = x.name;
+        job_bullet.appendChild(link);
+        list.appendChild(job_bullet);
+        // Creates new sublist
+        list_for_job = document.createElement("ul");
+        job_bullet.appendChild(list_for_job);
+        // time
+        time = document.createElement("li");
+        time.innerHTML = x.startDate + " to " + x.endDate;
+        list_for_job.appendChild(time);
+        // role
+        role = document.createElement("li");
+        role.innerHTML = x.position;
+        list_for_job.appendChild(role);
+        // description
+        desc = document.createElement("li");
+        desc.innerHTML = x.summary;
+        list_for_job.appendChild(desc);
+      }
+      // Generates and displays the HTML for the Interests section by looping through the interests array
+      interests = document.getElementById("interests");
+      for (const x of parsed_obj.interests) {
+        interest = document.createElement("li");
+        interest.innerHTML = x.name;
+        interests.appendChild(interest);
+      }
+      // Sets the text of the email element to the your email
+      email = document.getElementById("email");
+      email.innerHTML = parsed_obj.basics.email;
+      // Sets the text of the phone element to the your phone
+      phone = document.getElementById("phone");
+      phone.innerHTML = parsed_obj.basics.phone;
+      // Sets the text of the address element to the your address
+      address = document.getElementById("address");
+      address.innerHTML =
+        parsed_obj.basics.location.address +
+        ", " +
+        parsed_obj.basics.location.city +
+        ", " +
+        parsed_obj.basics.location.region +
+        " " +
+        parsed_obj.basics.location.postalCode;
+  </script>
+</body>
+</html>
